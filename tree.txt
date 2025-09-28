@@ -1,0 +1,136 @@
+.
+├── agents
+│   ├── __init__.py
+│   ├── generic
+│   │   ├── polygpt
+│   │   │   └── readme_polygpt.md
+│   │   └── readme_generic.md
+│   ├── policy
+│   │   ├── assessment_agent.py
+│   │   ├── bre_rules_agent.py
+│   │   ├── code_generator.py
+│   │   ├── compare_processor.py
+│   │   ├── generate_options_agent.py
+│   │   ├── keys_mapper_agent.py
+│   │   ├── sql_processor.py
+│   │   ├── summarize_agent.py
+│   │   ├── test_bed_agent.py
+│   │   └── user_query_processor.py
+│   └── readme_agents.md
+├── cam_download_dump
+├── configs
+│   ├── __init__.py
+│   ├── config.py
+│   ├── json_models.yaml
+│   ├── model_loader.py
+│   └── readme_config.md
+├── constants
+│   ├── __init__.py
+│   ├── endpoints.py
+│   └── policy
+│       ├── assessment_constants.py
+│       ├── bre_rules_constants.py
+│       ├── codify_constants.py
+│       ├── generate_options_constants.py
+│       ├── initiate_constants.py
+│       ├── keys_mapper_constants.py
+│       ├── policy_comparison_constants.py
+│       ├── querify_constants.py
+│       ├── rulify_constants.py
+│       ├── summarize_constants.py
+│       ├── test_bed_constants.py
+│       └── user_query_constants.py
+├── controller
+│   ├── __init__.py
+│   ├── policy
+│   │   ├── assessment_controller.py
+│   │   ├── bre_rules_controller.py
+│   │   ├── cam_ocr_controller.py
+│   │   ├── codify_controller.py
+│   │   ├── generate_options_controller.py
+│   │   ├── keys_mapper_controller.py
+│   │   ├── organization_controller.py
+│   │   ├── policy_comparison_controller.py
+│   │   ├── querify_controller.py
+│   │   ├── rulify_controller.py
+│   │   ├── summarize_controller.py
+│   │   ├── test_bed_controller.py
+│   │   └── user_query_controller.py
+│   └── webhook
+│       ├── __init__.py
+│       └── initiate_controller.py
+├── download_dump
+│   ├── adani1ksdfdjasds.pdf
+│   └── adani1ksdfdjasdsasdag.pdf
+├── dto
+│   ├── __init__.py
+│   ├── agent_dto.py
+│   ├── assessment_dto.py
+│   ├── config_dto_default.py
+│   ├── config_dto.py
+│   ├── db_dto.py
+│   ├── generate_options_dto.py
+│   ├── llm_cloud_provider.py
+│   └── response_dto.py
+├── global-bundle.pem
+├── main.py
+├── middleware
+│   ├── __init__.py
+│   ├── auth_middleware.py
+│   ├── exception_handlers.py
+│   ├── rate_limiting.py
+│   └── request_logging_middleware.py
+├── prompts
+│   ├── __init__.py
+│   ├── prompt_manager.py
+│   └── readme_prompts.md
+├── README.md
+├── requirements.txt
+├── secretmanager
+│   ├── __init__.py
+│   ├── ai_config.py
+│   ├── ai_secrets.py
+│   ├── client_config_service.py
+│   ├── fetch_secret.py
+│   └── mongo_connection_manager.py
+├── services
+│   ├── __init__.py
+│   ├── assessment_service.py
+│   ├── bre_rules_service.py
+│   ├── cam_ocr_service.py
+│   ├── codify_service.py
+│   ├── generate_options_service.py
+│   ├── initiate_service.py
+│   ├── keys_mapper_service.py
+│   ├── policy_comparison_service.py
+│   ├── querify_service.py
+│   ├── readme_services.md
+│   ├── rulify_service.py
+│   ├── summarize_service.py
+│   ├── test_bed_service.py
+│   ├── user_query_service.py
+│   └── vectorstore
+│       └── __init__.py
+├── TE-AI Revamp-090925-053632.pdf
+├── tests
+│   ├── generic
+│   │   └── test_polygpt.py
+│   └── policy
+│       ├── test_codify.py
+│       ├── test_rulify.py
+│       └── test_summarize.py
+├── trash
+│   ├── sample.pdf
+│   └── test1.ipynb
+└── utils
+    ├── __init__.py
+    ├── aws_param_handler.py
+    ├── cam_utils.py
+    ├── download_presigned_url.py
+    ├── logger.py
+    ├── middleware_utils.py
+    ├── polyutils.py
+    ├── run_timeout.py
+    ├── slack_notifier.py
+    ├── sqs_client.py
+    └── webhook_client.py
