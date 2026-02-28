@@ -22,8 +22,8 @@ class AgentState:
     Added org_id and org_name support for multi-tenant architecture.
     """
     agent_id: str
-    org_id: str
-    org_name: str
+    org_id: Optional[str] = None
+    org_name: Optional[str] = None
     status: AgentStatus
     config: Dict[str, Any]
     results: Optional[Dict[str, Any]] = None
@@ -38,14 +38,20 @@ class AgentState:
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> "AgentState":
         """Create from dictionary."""
-        data["status"] = AgentStatus(data["status"])
+        # Convert status field
+        data["status"] = AgentStatus(data["status"]) if isinstance(data.get("status"), str) else data.get("status")
+        # Provide backward-compatible defaults for org fields
+        if "org_id" not in data:
+            data["org_id"] = None
+        if "org_name" not in data:
+            data["org_name"] = None
         return cls(**data)
 
 
 class TestbedAgent:
     """Testbed agent for running prompt experiments."""
     
-    def __init__(self, agent_id: str, org_id: str, org_name: str, 
+    def __init__(self, agent_id: str, org_id: Optional[str] = None, org_name: Optional[str] = None, 
                  storage: Optional[StorageBackend] = None):
         """
         Initialize testbed agent.
@@ -110,9 +116,21 @@ class TestbedAgent:
     
     def _load_state(self) -> bool:
         """Load state from storage."""
+        # Try org-scoped load first (if org_id present), otherwise attempt legacy/global load
         data = self.storage.load(self.agent_id, self.org_id)
+        if not data and self.org_id is not None:
+            # Attempt legacy/global load without org_id for backward compatibility
+            data = self.storage.load(self.agent_id, None)
+
         if data:
-            self.state = AgentState.from_dict(data)
+            # Merge loaded values into state while preserving current org context when missing
+            loaded = AgentState.from_dict(data)
+            # If loaded doesn't have org_id/org_name, prefer current agent values
+            if not loaded.org_id:
+                loaded.org_id = self.org_id
+            if not loaded.org_name:
+                loaded.org_name = self.org_name
+            self.state = loaded
             return True
         return False
 

@@ -11,6 +11,7 @@ PROMPT_USER_QUERY = "user_query_processor_prompt"
 PROMPT_COMPARE = "compare_processor_prompt"
 PROMPT_TEST_BED = "test_bed_prompt"
 PROMPT_RULIFY = "rulify_prompt"
+PROMPT_FRAUD_DETECTION = "fraud_detection_prompt"
 
 # Dictionary mapping for prompt standardization
 STANDARD_PROMPTS = {
@@ -24,6 +25,7 @@ STANDARD_PROMPTS = {
     PROMPT_COMPARE: "Compare Processor Prompt",
     PROMPT_TEST_BED: "Test Bed Agent Prompt",
     PROMPT_RULIFY: "Rulify Agent Prompt",
+    PROMPT_FRAUD_DETECTION: "Fraud Detection Prompt",
 }
 
 # Default system prompts
